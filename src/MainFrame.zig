@@ -10,6 +10,8 @@ const core = @import("core");
 const LoginEndpoint = @import("Login.zig").LoginEndpoint;
 const DashboardEndpoint = @import("Dashboard.zig").DashboardEndpoint;
 
+const jwt_key = @embedFile("secret/jwt_key.txt");
+
 /// Third Party
 const zap = @import("zap");
 
@@ -55,7 +57,7 @@ pub const MainFrame = struct {
 
         // Context
         self.context = .{
-            .jwt_key = "19TEMP28KEY73",
+            .jwt_key = jwt_key,
             .jwt_exp = 3600,
             .users = std.StringHashMap([]const u8).init(self.allocator),
         };
@@ -72,8 +74,8 @@ pub const MainFrame = struct {
         // Tls
         self.tls = try Tls.init(.{
             .server_name = "localhost:4443",
-            .public_certificate_file = "src/certs/ca.crt",
-            .private_key_file = "src/certs/ca.key",
+            .public_certificate_file = "src/secret/ca.crt",
+            .private_key_file = "src/secret/ca.key",
         });
 
         // JWT Authenticator
