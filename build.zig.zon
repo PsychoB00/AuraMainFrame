@@ -1,0 +1,26 @@
+.{
+    .name = .AuraMainFrame,
+    .version = "0.0.1",
+    .fingerprint = 0xe6babb89e28286d3,
+
+    .dependencies = .{
+        .core = .{
+            .url = "git+https://github.com/PsychoB00/AuraCore.git#master",
+            .hash = "AuraCore-0.0.1-sHn8yLAvAADuncL2HNntPo1A5LCnRWbzLan-E78t_4Uu",
+        },
+        .zap = .{
+            .url = "git+https://github.com/zigzap/zap.git#master",
+            .hash = "zap-0.9.1-GoeB85JTJAADY1vAnA4lTuU66t6JJiuhGos5ex6CpifA",
+        },
+        .jwt = .{
+            .url = "git+https://github.com/leroycep/zig-jwt.git#master",
+            .hash = "jwt-0.0.1-HbWOu6Y-AAAazOpY5quBwgxLtHBcZxtfMn7OCim45glZ",
+        },
+    },
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "certs",
+    },
+}

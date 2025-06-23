@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aura - login to MainFrame</title>
+        <style>
+            :root {
+                --background: rgb(31, 46, 48);
+                --primary: white;
+            }
+
+            ::selection {
+              background: var(--primary);
+              color: var(--background);
+            }
+        
+            body {
+                background-color: var(--background);
+                height: 100%;
+                margin: 0;
+            }
+
+            input[type=text], input[type=password] {
+                width: 200px;
+                padding: 5px 5px;
+                background-color: transparent;
+                color: var(--primary);
+                outline: none;
+                border: 2px solid;
+                border-color: var(--primary);
+                display: inline-block;
+                box-sizing: border-box;
+            }
+
+            button {
+                background-color: transparent;
+                color: var(--primary);
+                padding: 5px 5px;
+                border: 2px solid;
+                border-color: var(--primary);
+                cursor: pointer;
+                width: 200px;
+            }
+
+            button:hover {
+                background-color: var(--primary);
+                color: var(--background);
+            }
+
+            img {
+                width: 65%;
+                margin: 8px 0px;
+            }
+
+            .filter-white{
+                filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(22deg) brightness(105%) contrast(105%);
+            }
+
+            .container {
+                display: grid;
+                height: 100vh;
+                place-items: center;
+            }
+
+            .container-grid {
+                display: grid;
+                grid-template-columns: 1 auto; 
+                gap: 8px;
+                justify-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="/login" method="post" class="container">
+            <div class="container-grid">
+                <img src="/login/aura_dome.svg" class=filter-white>
+                <input type="text" placeholder="Enter username" name="username" required>
+                <input type="password" placeholder="Enter password" name="password" required>
+                <button type="submit">Login</button>
+            </div>
+        </div>
+    </body>
+</html>
