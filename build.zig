@@ -11,7 +11,7 @@ pub fn build(b: *std.Build) void {
     const zap = b.dependency("zap", .{
         .target = target,
         .optimize = optimize,
-        .openssl = true,
+        .openssl = false,
     });
     const jwt = b.dependency("jwt", .{
         .target = target,

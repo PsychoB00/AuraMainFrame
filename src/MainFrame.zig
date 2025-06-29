@@ -37,13 +37,11 @@ pub const MainFrame = struct {
     };
 
     const App = zap.App.Create(Context);
-    const Tls = zap.Tls;
 
     allocator: Allocator,
 
     context: Context,
     app: App,
-    tls: Tls,
     jwt_authenticator: core.JWTAuthenticator,
 
     login_ep: LoginEndpoint,
@@ -71,13 +69,6 @@ pub const MainFrame = struct {
             .{},
         );
 
-        // Tls
-        self.tls = try Tls.init(.{
-            .server_name = "localhost:4443",
-            .public_certificate_file = "src/secret/ca.crt",
-            .private_key_file = "src/secret/ca.key",
-        });
-
         // JWT Authenticator
         self.jwt_authenticator = try core.JWTAuthenticator.init(self.allocator, self.context.jwt_key, null);
 
@@ -95,7 +86,6 @@ pub const MainFrame = struct {
         try self.app.listen(.{
             .interface = "127.0.0.1",
             .port = 4443,
-            .tls = self.tls,
         });
 
         // Start
@@ -108,7 +98,6 @@ pub const MainFrame = struct {
     /// Deinitialize MainFrame
     pub fn deinit(self: *MainFrame) void {
         self.jwt_authenticator.deinit();
-        self.tls.deinit();
         self.app.deinit();
         self.context.users.deinit();
     }
