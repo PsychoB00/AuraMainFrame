@@ -9,13 +9,6 @@ const GeneralPurpouseAllocator = std.heap.GeneralPurposeAllocator(.{
 /// Aura
 const MainFrame = @import("MainFrame.zig").MainFrame;
 
-pub const std_options: std.Options = .{
-    .log_level = .info,
-    .log_scope_levels = &[_]std.log.ScopeLevel{
-        .{ .scope = .zap, .level = .debug },
-    },
-};
-
 pub fn main() !void {
     var gpa: GeneralPurpouseAllocator = .{};
     defer debug.assert(gpa.deinit() == .ok);

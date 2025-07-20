@@ -8,6 +8,12 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+
+    const zeit = b.dependency("zeit", .{
+        .target = target,
+        .optimize = optimize,
+    });
+
     const zap = b.dependency("zap", .{
         .target = target,
         .optimize = optimize,
@@ -24,6 +30,7 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     exe_mod.addImport("core", core.module("core"));
+    exe_mod.addImport("zeit", zeit.module("zeit"));
     exe_mod.addImport("zap", zap.module("zap"));
     exe_mod.addImport("jwt", jwt.module("jwt"));
 

@@ -1,0 +1,6 @@
+Networking:
+    - transition to HTTPS
+    - AutoRouting
+Login:
+    - use actuall DB for users
+    - add "Invalid login information" when Login fails

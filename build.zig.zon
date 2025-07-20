@@ -1,13 +1,19 @@
 .{
     .name = .AuraMainFrame,
-    .version = "0.0.1",
+    .version = "0.0.2",
     .fingerprint = 0xe6babb89e28286d3,
 
     .dependencies = .{
         .core = .{
             .url = "git+https://github.com/PsychoB00/AuraCore.git#master",
-            .hash = "AuraCore-0.0.1-sHn8yLAvAADuncL2HNntPo1A5LCnRWbzLan-E78t_4Uu",
+            .hash = "AuraCore-0.0.1-sHn8yMyeAACqwPLOyjVv99hrZ6VQFWusSUk7iucIhEzo",
         },
+
+        .zeit = .{
+            .url = "git+https://github.com/rockorager/zeit.git#main",
+            .hash = "zeit-0.6.0-5I6bk697AgAjrCWnmInbXTZ98avC1JtELxiYd-YU9cc2",
+        },
+
         .zap = .{
             .url = "git+https://github.com/zigzap/zap.git#master",
             .hash = "zap-0.9.1-GoeB85JTJAADY1vAnA4lTuU66t6JJiuhGos5ex6CpifA",

@@ -1,6 +1,5 @@
 /// STD
 const std = @import("std");
-const log = std.log;
 const Allocator = std.mem.Allocator;
 
 /// Aura
@@ -18,9 +17,14 @@ pub const DashboardEndpoint = struct {
         self.path = path;
     }
 
-    pub fn unauthorized(_: *DashboardEndpoint, _: Allocator, _: *Context, r: zap.Request) !void {
-        const bearer = zap.Auth.extractAuthHeader(.Bearer, &r) orelse "none";
-        log.err("Attempted unauthorized access to dashboard {s}", .{bearer});
+    pub fn unauthorized(_: *DashboardEndpoint, _: Allocator, context: *Context, r: zap.Request) !void {
+        context.logger
+            .log(.warn)
+            .time()
+            .scope("DashboardEndpoint.unauthorized")
+            .print("Attempted to access endpoint with invalid bearer")
+            .commit();
+
         r.setStatus(.unauthorized);
     }
 
