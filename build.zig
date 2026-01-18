@@ -46,6 +46,15 @@ pub fn build(b: *std.Build) void {
         run_cmd.addArgs(args);
     }
 
+    // Copy resources
+    const install_resources = b.addInstallDirectory(.{
+        .source_dir = b.path("resources"),
+        .install_dir = std.Build.InstallDir.prefix,
+        .install_subdir = "resources",
+    });
+
+    b.getInstallStep().dependOn(&install_resources.step);
+
     const run_step = b.step("run", "Run the MainFrame");
     run_step.dependOn(&run_cmd.step);
 

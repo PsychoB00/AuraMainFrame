@@ -1,27 +1,35 @@
 /// STD
 const std = @import("std");
-const debug = std.debug;
-const log = std.log;
 const GeneralPurpouseAllocator = std.heap.GeneralPurposeAllocator(.{
     .thread_safe = true,
 });
 
-/// Aura
-const MainFrame = @import("MainFrame.zig").MainFrame;
+const assert = std.debug.assert;
 
+/// Aura
+const core = @import("core");
+
+const Router = @import("router.zig").Router;
+
+const Application = core.application.Application(
+    .{
+        .interface = "127.0.0.1",
+        .port = 3000,
+        .thread_count = 2,
+        .worker_count = 1,
+    },
+    Router,
+);
+
+/// Aura
 pub fn main() !void {
     var gpa: GeneralPurpouseAllocator = .{};
-    defer debug.assert(gpa.deinit() == .ok);
+    defer assert(gpa.deinit() == .ok);
+    const allocator = gpa.allocator();
 
-    var mf: MainFrame = undefined;
-    mf.init(&gpa) catch |err| {
-        log.err("Error occured during MainFrame initialization. Cause -> {s}", .{@errorName(err)});
-        return;
-    };
-    defer mf.deinit();
+    var app: Application = undefined;
+    try app.init(allocator);
+    defer app.deinit(allocator);
 
-    mf.run() catch |err| {
-        log.err("Error occured during MainFrame run. Cause -> {s}", .{@errorName(err)});
-        return;
-    };
+    try app.run();
 }

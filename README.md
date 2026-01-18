@@ -7,7 +7,7 @@ System requirements:
 - OS: Linux distro
 
 Third party code used:
--Time
+- Time
     - zeit: https://github.com/rockorager/zeit.git
 - Networking
     - zap: https://github.com/zigzap/zap

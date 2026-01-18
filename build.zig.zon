@@ -6,21 +6,21 @@
     .dependencies = .{
         .core = .{
             .url = "git+https://github.com/PsychoB00/AuraCore.git#master",
-            .hash = "AuraCore-0.0.1-sHn8yMyeAACqwPLOyjVv99hrZ6VQFWusSUk7iucIhEzo",
+            .hash = "AuraCore-0.0.33-sHn8yNAnBADCQwbTZ0OS79TF8HR2Gpr4flrVfvhOZCen",
         },
 
         .zeit = .{
             .url = "git+https://github.com/rockorager/zeit.git#main",
-            .hash = "zeit-0.6.0-5I6bk697AgAjrCWnmInbXTZ98avC1JtELxiYd-YU9cc2",
+            .hash = "zeit-0.6.0-5I6bk36tAgATpSl9wjFmRPMqYN2Mn0JQHgIcRNcqDpJA",
         },
 
         .zap = .{
             .url = "git+https://github.com/zigzap/zap.git#master",
-            .hash = "zap-0.9.1-GoeB85JTJAADY1vAnA4lTuU66t6JJiuhGos5ex6CpifA",
+            .hash = "zap-0.10.6-GoeB8w-EJABTkxyoGH_Z8oMBYMxTBvn7YWk-DrJOHuDO",
         },
         .jwt = .{
             .url = "git+https://github.com/leroycep/zig-jwt.git#master",
-            .hash = "jwt-0.0.1-HbWOu6Y-AAAazOpY5quBwgxLtHBcZxtfMn7OCim45glZ",
+            .hash = "jwt-0.0.1-HbWOuxtAAAApNHYj9q0gpHAyJo-2SvtyE4SlIDUliJgE",
         },
     },
 
